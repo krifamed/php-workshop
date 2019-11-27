@@ -5,7 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>reveal.js</title>
+		<style>
+			.my-table td {
+				font-size: 18px;
+			}
 
+		</style>
+
+		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -22,11 +29,384 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 	</head>
-	<body>
+	<body style="background: #000; transition : transform 0.8s ease 0s;">
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+					<section>
+						<div style="width: 80%; margin: 0 auto">
+							<h1 class="title">PHP session 2</h1>
+							<h5><i>Freeways HLP departement</i></h5>
+							<h3 class="emphasize">Walid sebai</h3>
+						</div>					
+						<div id="version">2019-11-27</div>
+					</section>
+					<section>
+						<h1>HTTP</h1>
+						<img src="img/http.png" alt="">
+					</section>
+					<section>
+						<section>
+							<h1>what is HTTP?</h1>
+							<img src="img/internet.gif" alt="">
+						</section>
+						<section>
+							<h2 >HTTP = <code>H</code>yper<code>t</code>ext <code>T</code>ransfert <code>P</code>rotocol</h2>
+							<p class="fragment">The Hypertext Transfer Protocol (HTTP) is an application protocol for distributed, collaborative, hypermedia
+								information systems.[1] HTTP is the foundation of data communication for the World Wide Web. (wikipedia)</p>
+								
+						</section>
+							
+						<section>
+							<h1>what is HTTP?</h1>
+							<ul>
+								<div class="fragment">
+									<li>TCP/IP based protocol</li>
+								</div>
+								<div class="fragment">
+									<li>Client/Server protocol</li>
+								</div>
+								<div class="fragment">
+									<li>Stateless protocol</li>
+								</div>
+								<div class="fragment">
+									<li>Port 80 by default</li>
+								</div>
+							</ul>
+						</section>
+					</section>
+					<section>
+							<section>
+								<h2>How the web works?</h2>
+								<img src="img/how-works.png" alt="">
+							</section>
+							<section>
+								<h2>How the web works?</h2>
+								<ul>
+									<div class="fragment">
+										<li>The Client(browser) type in the url</li>
+										<ul class="fragment">
+											<li>example: https://www.gnu.org/licenses/licenses.html</li>
+										</ul>
+									</div>
+									<div class="fragment">
+										<li>The client send a Request(Http message)</li>
+									</div>
+									<div class="fragment">
+										<li>The server return a Response(Http message)</li>
+									</div>
+								</ul>
+							</section>
+							<section>
+								<h2>How the web works?</h2>
+								<img src="img/simpsons.png" alt="">
+							</section>
+						</section>
+						<section>
+							<h2>HTTP request message format</h2>
+							<img src="img/req.png" alt="">
+						</section>
+						<section>
+							<h2>HTTP response message format</h2>
+							<img src="img/req.png" alt="">
+						</section>
+
+						<section>
+							<section>
+								<h2>Methods</h2>
+								<p class="fragment">HTTP supports several different request commands, called HTTP methods. Every HTTP request message has a method. The
+									method tells the server what action to perform.</p>
+								</section>
+								<section class="present" data-index-h="4" data-index-v="1">
+									<table class="my-table">
+										<thead>
+											<tr>
+												<th >Method</th>
+												<th>Description</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>GET</td>
+												<td>Retrieve information from the server.</td>
+											</tr>
+											<tr>
+												<td>HEAD</td>
+												<td>Same as GET, but transfers the status line and header section only.</td>
+												<!-- <td>No</td> -->
+											</tr>
+											<tr>
+												<td>POST</td>
+												<td>Send data to the server for processing.</td>
+												<!-- <td>Yes</td> -->
+											</tr>
+											<tr>
+												<td>PUT</td>
+												<td>Store the body of the request on the server.</td>
+												<!-- <td>Yes</td> -->
+											</tr>
+											<tr>
+												<td>DELETE</td>
+												<td>Remove a document from the server.</td>
+												<!-- <td>No</td> -->
+											</tr>
+											<tr>
+												<td>TRACE</td>
+												<td>Trace the message through proxy servers to the server.</td>
+											</tr>
+											<tr>
+												<td>OPTION</td>
+												<td>Determine what methods can operate on a server.</td>
+											</tr>
+											<tr>
+												<td>CONNECT</td>
+												<td>Converts the request connection to a transparent TCP/IP tunnel.</td>
+												<!-- <td>No</td> -->
+											</tr>
+											<tr>
+												<td>PATCH</td>
+												<td>Applies partial modifications to a resource</td>
+												<!-- <td>Yes</td> -->
+											</tr>
+										</tbody>
+									</table>
+								</section>
+								<section>
+									
+									<h3>CRUD</h3>
+									<table>
+										<tbody>
+											<tr>
+												<td>Create</td>
+												<td>POST /books</td>
+							</tr>
+							<tr>
+								<td>Read</td>
+								<td>GET /books</td>
+							</tr>
+							<tr>
+								<td>Update</td>
+								<td>PUT /books/:id</td>
+							</tr>
+							<tr>
+								<td>Delete</td>
+								<td>DELETE /books/:id</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>URI/URL</h2>
+					<img src="img/uri.jpg" alt="">
+				</section>
+				<section>
+					<p>A <b style="color: green;">URI</b> is a string of characters that identifies a particular resource to uniquely identify and locate it around the Web.</p>
+					<p>An <b style="color: green">URL</b> is the most common type of URI. It specifies the means of acting upon or obtaining the representation of a
+					resource describing this resource located on a particular server.</p>
+				</section>
+				<section>
+					<h2>URL structure</h2>
+					<img src="img/urlstructure.png" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Status Codes</h3>
+					
+					<table>
+					
+						<tbody>
+							<tr>
+								<td><a href="https://httpstatuses.com/">1xx </a></td>
+								<td>Informational</td>
+							</tr>
+							<tr>
+								<td><a href="https://httpstatuses.com/">2xx</a></td>
+								<td>Success</td>
+							</tr>
+							<tr>
+								<td><a href="https://httpstatuses.com/">3xx</a></td>
+								<td>Redirection</td>
+							</tr>
+							<tr>
+								<td><a href="https://httpstatuses.com/">4xx</a></td>
+								<td>Client Error</td>
+							</tr>
+							<tr>
+								<td><a href="https://httpstatuses.com/">5xx</a></td>
+								<td>Server Error</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<img src="img/200.jpg" alt="">
+				</section>
+				<section>
+					<img src="img/301.jpg" alt="">
+				</section>
+				<section>
+					<img src="img/400.jpg" alt="">
+				</section>
+				<section>
+					<img src="img/404.jpg" alt="">
+				</section>
+				<section>
+					<img src="img/500.jpg" alt="">
+				</section>
+				<section>
+					<img src="img/503.jpg" alt="">
+				</section>
+			</section>
+			<section>
+				<h1>database</h1>
+			</section>
+			<section>
+				<h2>what is a data?</h2>
+				<div class="fragment">
+					<p>Individual units of information</p>
+					<img src="img/data.png" width="250" height="250" alt="">
+				</div>
+			</section>
+			<section>
+				<h2>what is a database?</h2>
+				<div class="fragment">
+					<p>Systematic collection of data</p>
+					<img src="img/db.jpg" alt="">
+				</div>
+			</section>
+			<section>
+				<section>
+					<h2>what is a dbms?</h2>
+					<div class="fragment">
+						<img src="img/dbms.png" alt="">
+					</div>
+				</section>
+				<section>
+					<h3>hierarchical dbms</h3>
+					<img src="img/Hierarchical.jpg" alt="">
+				</section>
+				<section>
+					<h3>Network dbms</h3>
+					<img src="img/network.jpg" alt="">
+				</section>
+				<section>
+					<h3>Relational dbms</h3>
+					<img src="img/relational.jpg" alt="">
+				</section>
+				<section>
+					<h3>Relational dbms</h3>
+					<img src="img/relational.jpg" alt="">
+				</section>
+				<section>
+					<h3>Object oriented dbms</h3>
+					<ul>
+						<li>
+							store data elements as objects
+						</li>
+						<img src="img/objectdbms.jpg" width="500" height="300" alt="">
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h2>Sql</h2>
+				<p>Sturctured query language</p>
+				<p>standard language for relational databases</p>
+				<p>effectively used to insert, search, update, delete database records</p>
+			</section>
+			<section>
+
+				<section>
+					<h2>SQL search</h2>
+					<img src="img/db.png" alt="">
+					<div class="fragment" data-markdown>
+						````sql
+						select name from logo_people; 
+						
+						````
+						//return all names from logo_people table 
+					</div>
+				</section>
+				<section>
+					<h2>SQL search</h2>
+					<img src="img/db.png" alt="">
+					<div class="fragment" data-markdown>
+						````sql
+						select name,age from logo_people; 
+						
+						````
+						//return all names and ages  from logo_people table 
+					</div>
+					<div class="fragment" data-markdown>
+						````sql
+						// the same 
+						select * from logo_people; 
+						// ps : * stands for all the items
+						````
+					</div>
+					
+				</section>
+				<section>
+					<img src="img/db.png" alt="">
+					<div class="fragment" data-markdown>
+						````sql
+						select * from logo_people where age > 20;
+						````
+						// return all the logo peoples with age greater than 20
+					</div>
+					
+					
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Sql Insert</h2>
+					<img src="img/lego.png" alt="">
+					<div class="fragment" data-markdown>
+						````sql
+						insert into logo_people values("joe", 12);
+						````
+					</div>
+					<img class="fragment" src="img/insert.png" alt="">
+
+
+				</section>
+			</section>
+				<section>
+					<h2>Sql update</h2>
+					<img src="img/insert.png" alt="">
+					<div class="fragment" data-markdown>
+						````sql
+						update logo_people set age=13 where name="joe";
+						````
+					</div>
+					<img class="fragment" src="img/update.png" alt="">
+				</section>
+				<section>
+
+					<section>
+						<h2>Sql Delete</h2>
+						<img src="img/update.png" alt="">
+						<div class="fragment" data-markdown>
+							````sql
+							Delete  from logo_people where name="joe";
+							````
+						</div>
+						<img class="fragment" src="img/lego.png" alt="">
+					</section>
+					<section>
+						<h2>Sql delete</h2>
+						<div class="fragment" data-markdown>
+							````sql
+							Delete  from logo_people;
+							````
+							// delete the entire table content
+						</div>
+
+					</section>
+				</section>
+			</section>
 			</div>
 		</div>
 
@@ -42,7 +422,148 @@
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
+				],
+					// Display presentation control arrows
+				controls: true,
+
+				// Help the user learn the controls by providing hints, for example by
+				// bouncing the down arrow when they first encounter a vertical slide
+				controlsTutorial: true,
+
+				// Determines where controls appear, "edges" or "bottom-right"
+				controlsLayout: 'bottom-right',
+
+				// Visibility rule for backwards navigation arrows; "faded", "hidden"
+				// or "visible"
+				controlsBackArrows: 'faded',
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// Display the page number of the current slide
+				slideNumber: false,
+
+				// Add the current slide number to the URL hash so that reloading the
+				// page/copying the URL will return you to the same slide
+				hash: false,
+
+				// Push each slide change to the browser history. Implies `hash: true`
+				history: false,
+
+				// Enable keyboard shortcuts for navigation
+				keyboard: true,
+
+				// Enable the slide overview mode
+				overview: true,
+
+				// Vertical centering of slides
+				center: true,
+
+				// Enables touch navigation on devices with touch input
+				touch: true,
+
+				// Loop the presentation
+				loop: false,
+
+				// Change the presentation direction to be RTL
+				rtl: false,
+
+				// See https://github.com/hakimel/reveal.js/#navigation-mode
+				navigationMode: 'default',
+
+				// Randomizes the order of slides each time the presentation loads
+				shuffle: false,
+
+				// Turns fragments on and off globally
+				fragments: true,
+
+				// Flags whether to include the current fragment in the URL,
+				// so that reloading brings you to the same fragment position
+				fragmentInURL: false,
+
+				// Flags if the presentation is running in an embedded mode,
+				// i.e. contained within a limited portion of the screen
+				embedded: false,
+
+				// Flags if we should show a help overlay when the questionmark
+				// key is pressed
+				help: true,
+
+				// Flags if speaker notes should be visible to all viewers
+				showNotes: false,
+
+				// Global override for autoplaying embedded media (video/audio/iframe)
+				// - null: Media will only autoplay if data-autoplay is present
+				// - true: All media will autoplay, regardless of individual setting
+				// - false: No media will autoplay, regardless of individual setting
+				autoPlayMedia: null,
+
+				// Global override for preloading lazy-loaded iframes
+				// - null: Iframes with data-src AND data-preload will be loaded when within
+				//   the viewDistance, iframes with only data-src will be loaded when visible
+				// - true: All iframes with data-src will be loaded when within the viewDistance
+				// - false: All iframes with data-src will be loaded only when visible
+				preloadIframes: null,
+
+				// Number of milliseconds between automatically proceeding to the
+				// next slide, disabled when set to 0, this value can be overwritten
+				// by using a data-autoslide attribute on your slides
+				autoSlide: 0,
+
+				// Stop auto-sliding after user input
+				autoSlideStoppable: true,
+
+				// Use this method for navigation when auto-sliding
+				autoSlideMethod: Reveal.navigateNext,
+
+				// Specify the average time in seconds that you think you will spend
+				// presenting each slide. This is used to show a pacing timer in the
+				// speaker view
+				defaultTiming: 120,
+
+				// Enable slide navigation via mouse wheel
+				mouseWheel: false,
+
+				// Hide cursor if inactive
+				hideInactiveCursor: true,
+
+				// Time before the cursor is hidden (in ms)
+				hideCursorTime: 5000,
+
+				// Hides the address bar on mobile devices
+				hideAddressBar: true,
+
+				// Opens links in an iframe preview overlay
+				// Add `data-preview-link` and `data-preview-link="false"` to customise each link
+				// individually
+				previewLinks: false,
+
+				// Transition style
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Transition speed
+				transitionSpeed: 'default', // default/fast/slow
+
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				// Number of slides away from the current that are visible
+				viewDistance: 3,
+
+				// Parallax background image
+				parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+				// Parallax background size
+				parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+				// Number of pixels to move the parallax background per slide
+				// - Calculated automatically unless specified
+				// - Set to 0 to disable movement along an axis
+				parallaxBackgroundHorizontal: null,
+				parallaxBackgroundVertical: null,
+
+				// The display mode that will be used to show slides
+				display: 'block'
 			});
 		</script>
 	</body>
